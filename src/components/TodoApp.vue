@@ -24,7 +24,9 @@
       <tbody>
         <tr v-for="(tasks, index) in tasks" :key="index">
           <td>{{ tasks.task }}</td>
-          <td><span class="pointer" @click="changeStatus(index)">{{ tasks.status }}</span></td>
+          <td><span class="pointer" 
+          :class="{'text-success': tasks.status === 'done', 'text-danger': tasks.status === 'in-progress','text-warning': tasks.status === 'To-do'}"
+          @click="changeStatus(index)">{{ tasks.status }}</span></td>
           <td>
             <div class="text-center" @click="editTask(index)">
               <span class="fa fa-pen"></span>
